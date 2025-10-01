@@ -1,4 +1,4 @@
-from google import genai
+import google.generativeai as genai
 import json
 from config.settings import GOOGLE_API_KEY, GEMINI_MODEL
 

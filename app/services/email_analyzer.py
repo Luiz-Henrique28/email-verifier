@@ -2,12 +2,12 @@ import google.generativeai as genai
 import json
 from config.settings import GOOGLE_API_KEY, GEMINI_MODEL
 
-client = genai.Client(api_key=GOOGLE_API_KEY)
+genai.configure(api_key=GOOGLE_API_KEY)
 
 def analyze_email(email_data):
     prompt = _build_prompt(email_data)
 
-    response = client.models.generate_content(
+    response = genai.generate_content(
         model=GEMINI_MODEL,
         contents=prompt,
         config=_get_response_config()

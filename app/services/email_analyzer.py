@@ -7,11 +7,12 @@ genai.configure(api_key=GOOGLE_API_KEY)
 def analyze_email(email_data):
     prompt = _build_prompt(email_data)
 
-    response = genai.generate_content(
-        model=GEMINI_MODEL,
-        contents=prompt,
-        config=_get_response_config()
+    model = genai.GenerativeModel(
+        model_name=GEMINI_MODEL,
+        generation_config=_get_response_config()
     )
+
+    response = model.generate_content(prompt)
 
     response_text = response.candidates[0].content.parts[0].text
     return json.loads(response_text)

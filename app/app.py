@@ -19,7 +19,7 @@ def analyze_email_route():
     email_files = request.files.getlist('email_files')
 
     try:
-        content_files = process_files(email_files) if email_files else []
+        content_files = process_files(email_files) if email_files else ""
 
         email_data = ""
         if email_subject:

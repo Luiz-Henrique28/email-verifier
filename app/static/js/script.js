@@ -131,10 +131,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (result.category) {
-            const categoryClass = result.category === 'produtivo' ? 'text-success' : 'text-warning';
+            const categoryClass = result.category === 'produtivo' ? 'text-success fw-bold' : 'text-warning fw-bold';
             htmlContent += `<div class="mb-3">
                 <strong>Categoria:</strong>
-                <span class="${categoryClass}">${result.category}</span>
+                <span class="${categoryClass} fs-5">${result.category.toUpperCase()}</span>
             </div>`;
         }
 
